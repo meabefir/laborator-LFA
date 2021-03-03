@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1614778527 source:c:\users\strutul\desktop\codeblocks\fac\poo\test1-nfa\main.cpp
+	<iostream>
+	<vector>
+	<map>
+	<unordered_map>
+	<fstream>
+	<queue>
+	<set>
+

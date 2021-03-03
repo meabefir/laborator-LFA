@@ -3,7 +3,7 @@ structura input
 
 linia 1 => nodul de intrare
 linia 2 => numarul de muchii m
-urmatoarele m muchii => nod_start nod_final caracter
+urmatoarele m linii => <nod_start> <nod_final> <caracter>
 urmatoarea linie => nr de noduri finale n
 urmatoarele n linii => nod final
 urmatoarea linie => nr de cuvinte de verificat nr_cuv
@@ -19,6 +19,8 @@ using namespace std;
 
 ifstream f ("in.in");
 
+#define SHOW_STATES 0
+
 struct hash_pair {
     template <class T1, class T2>
     size_t operator()(const pair<T1, T2>& p) const
@@ -29,9 +31,9 @@ struct hash_pair {
     }
 };
 
-typedef pair<int, char> transition;
-typedef unordered_map<transition, int, hash_pair> dfa_type;
-typedef pair<int, string> dfa_state;
+typedef pair<string, char> transition;
+typedef unordered_map<transition, string, hash_pair> dfa_type;
+typedef pair<string, string> dfa_state;
 
 void show_states(vector<dfa_state> &dfa_states){
     for (int i = 0; i < dfa_states.size(); i++)
@@ -39,7 +41,7 @@ void show_states(vector<dfa_state> &dfa_states){
     cout << '\n';
 }
 
-bool check(string w, dfa_type &dfa, unordered_map<int, int> &is_final, int start_node){
+bool check(string w, dfa_type &dfa, unordered_map<string, int> &is_final, string start_node){
     vector<dfa_state> dfa_states;
     dfa_states.push_back(dfa_state(start_node,w));
 
@@ -53,22 +55,25 @@ bool check(string w, dfa_type &dfa, unordered_map<int, int> &is_final, int start
             return false;
         }
     }
-    if (is_final[dfa_states.back().first] == 1)
-        // show_states(dfa_states);
+    if (is_final[dfa_states.back().first] == 1){
+        if (SHOW_STATES)
+            show_states(dfa_states);
         return true;
+    }
     return false;
 }
 
 int main()
 {
     dfa_type dfa;
-    unordered_map<int, int> is_final;
+    unordered_map<string, int> is_final;
 
-    int start_node, nr_transitions, final_nodes, word_count, nr_passed = 0;
+    string start_node;
+    int nr_transitions, nr_final_nodes, word_count, nr_passed = 0;
 
     f >> start_node >> nr_transitions;
     for (int i = 0; i < nr_transitions; i++){
-        int node1,node2;
+        string node1,node2;
         char c;
         f >> node1 >> node2 >> c;
 
@@ -76,9 +81,9 @@ int main()
 
         dfa[this_trans] = node2;
     }
-    f >> final_nodes;
-    for (int i = 0; i < final_nodes; i++){
-        int final_node;
+    f >> nr_final_nodes;
+    for (int i = 0; i < nr_final_nodes; i++){
+        string final_node;
         f >> final_node;
         is_final[final_node] = 1;
     }
