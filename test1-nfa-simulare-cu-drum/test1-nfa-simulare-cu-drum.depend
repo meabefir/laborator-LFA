@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1615228305 source:c:\users\strutul\desktop\codeblocks\fac\lfa\test1-nfa-simulare-cu-drum\main.cpp
+	<iostream>
+	<set>
+	<vector>
+	<unordered_map>
+	<fstream>
+	<algorithm>
+

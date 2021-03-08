@@ -22,7 +22,7 @@ using namespace std;
 
 ifstream f ("in.in");
 
-#define SHOW_STATES 0
+#define SHOW_STATES 1
 
 struct hash_pair {
     template <class T1, class T2>
@@ -149,6 +149,8 @@ int main()
         cout << nfa_set.second << '\n';
     }
     cout << "\n\n\n\n";
+
+    // describe dfa rules
 
     for (auto it2: dfa){
         cout << it2.first.first << ' ' << it2.first.second << ' ' << it2.second << '\n';

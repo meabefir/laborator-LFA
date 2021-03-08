@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1614891342 source:c:\users\strutul\desktop\codeblocks\fac\lfa\test1-lambda-nfa\main.cpp
+	<iostream>
+	<vector>
+	<map>
+	<unordered_map>
+	<fstream>
+	<queue>
+	<set>
+

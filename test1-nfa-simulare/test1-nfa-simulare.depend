@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1615228407 source:c:\users\strutul\desktop\codeblocks\fac\lfa\test1-nfa-simulare\main.cpp
+	<iostream>
+	<set>
+	<vector>
+	<unordered_map>
+	<fstream>
+	<algorithm>
+
