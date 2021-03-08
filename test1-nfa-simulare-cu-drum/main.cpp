@@ -81,7 +81,7 @@ int main()
         finale.push_back(_final);
     }
 
-    int nr_tests;
+    int nr_tests, passed = 0;
     f >> nr_tests;
     for (int i = 0; i < nr_tests; i++){
         string w;
@@ -92,7 +92,10 @@ int main()
         found = false;
         check(nfa_states,nfa,finale,w);
         if (!found) cout << "NU\n";
+        else passed ++;
     }
+
+    cout << passed << " au fost acceptate\n";
 
     return 0;
 }
