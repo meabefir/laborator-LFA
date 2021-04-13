@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1618351705 source:c:\users\strutul\desktop\codeblocks\facultate\lfa\dfa to regex\main.cpp
+	<iostream>
+	<fstream>
+	<bits/stdc++.h>
+
